@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Model</title>
+	<meta charset="utf-8" /> 
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="libs/three.js"></script>
+    <script src="js/ColladaLoader.js"></script>
+
+    <style>
+        #log {
+            width: 20vw;
+            float:right;
+            background-color: black;
+            height:100vh;
+            position:absolute;
+            right:0;
+            top:0;
+            margin:0;
+        }
+        #scene{
+        margin:0;
+        width: 80vw;
+        float: left;
+    }
+        body {
+        position: relative;
+        }
+        form {
+            padding-top: 10vh;
+        }
+        img {
+            margin-top:20vh;
+        }
+        input {
+            display: inline-block;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            padding: 10px 10px;
+            border: 1px solid #b7b7b7;
+            -webkit-border-radius: 57px / 39px;
+            border-radius: 57px / 39px;
+            font: normal normal bold 15px/normal "Lucida Console", Monaco, monospace;
+            color: rgba(255,255,255,1);
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            letter-spacing: 2px;
+            white-space: pre;
+            background: rgba(84,84,84,1);
+            -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.71) inset;
+            box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.71) inset;
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.66) ;
+            -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+            -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+            -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+            transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+            margin-bottom:10px;
+        }
+        
+    </style>
+    <script>  
+        window.addEventListener("load", function () {
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(
+                45, // kąt patrzenia kamery (FOV - field of view)
+                0.8*window.innerWidth / window.innerHeight, // proporcje widoku, powinny odpowiadać proporjom naszego ekranu przeglądarki
+                0.1, // minimalna renderowana odległość
+                10000 // maxymalna renderowana odległość
+            );
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setClearColor(0x76716A);
+            renderer.setSize(0.8 * window.innerWidth, window.innerHeight);
+            var a = "76716A"
+            document.getElementById("scene").appendChild(renderer.domElement);
+            camera.position.x = 0;
+            camera.position.y = 200;
+            camera.position.z = -100;
+            camera.lookAt(-200, 0, 0);
+            function model() {
+                var daeModel
+                this.loadModel = function (url, callback) {
+                    var loader = new THREE.ColladaLoader();
+                    loader.load(url, function (collada) {
+                        daeModel = collada.scene;
+                        daeModel.scale.set(10, 10, 10)
+                        daeModel.traverse(function (child) {
+                            if (child instanceof THREE.Mesh) {
+                                              
+                            }
+                        });
+                        callback(daeModel)
+                    })
+                }
+                this.getModel = function () {
+                    return daeModel
+                }
+            }
+            var model = new model()
+            model.loadModel ("model/Witcher2.xml", function (modelData) {
+                scene.add(modelData)
+                camera.lookAt(modelData.position);
+                function animateScene() {
+                    requestAnimationFrame(animateScene);
+                    modelData.rotation.z += 0.005
+                }
+                animateScene();
+            })
+            function animateScene() {
+                requestAnimationFrame(animateScene);
+                renderer.render(scene, camera);
+            }
+            animateScene();
+        })
+    </script>
+</head>
+<body>
+    <div>
+        </div>
+    <div id="scene"></div>
+    <div id="log">
+        <img src="gfx/logo.png" width="200">
+        <form>
+            <input type="text" value="Login"/>
+            <input type="password" value="Hasło" /></br>
+            <input type="button" value="Zaloguj"/>
+        </form>
+    </div>
+</body>
+</html>

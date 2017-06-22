@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Gwint</title>
+    <meta charset="utf-8" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="libs/three.js"></script>
+    <script src="js/Game.js"></script>
+    <script src="js/Net.js"></script>
+    <script src="js/UI.js"></script>
+    <script src="js/font.js"></script>
+    <script src="js/karta.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #scene {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #front {
+           width: 100vw;
+     height: 100vh;
+     opacity: 0.7;
+     position:absolute;
+     top:0;
+     left:0;
+     background-color:green;
+        }
+
+        #back {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: green;
+            opacity: 0.7;
+        }
+
+        #kom {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 150px;
+            background-color: green;
+            opacity:0,5;
+            z-index: 10;
+        }
+
+        #log {
+            margin: 0 auto;
+            text-align: center;
+            width: 250px;
+            height: 250px;
+            background-color: green;
+            margin-top: 300px;
+        }
+
+            #log > input {
+                width: 200px;
+                height: 30px;
+                margin-left: 30px;
+                margin-right: 60px;
+                margin-top: 30px;
+                font-size: 20px;
+            }
+
+        #komunikat {
+            text-align: center;
+            margin: 0 auto;
+            padding-top: 35px;
+            font-size: 50px;
+            color:white;
+        }
+
+        #move {
+            text-align: center;
+        }
+
+        #tablica {
+            position: absolute;
+            top: 500px;
+            left: 10px;
+            width: 100px;
+            color: white;
+        }
+    </style>
+    <script>
+        /*
+	        inicjalizacja poszczególnych klas
+        */
+
+        var game;
+        var net;
+        var ui;
+        
+        window.addEventListener("load", function () {
+            game = new Game()
+           // net = new Net();
+            //ui = new UI();
+        })
+    </script>
+    
+</head>
+
+<body>
+
+
+    <div id="scene"></div>
+    <div id="tablica"></div>
+    <!--<div id="kom">
+        <h1 id="komunikat">Wpisz swój nick!</h1>
+        <h1 id="move"></h1>
+    </div>-->
+    <!--<div id="start">
+        <div id="back"></div>
+        <div id="front">
+            <div id="log">
+                <input id="username" type="text" name="usrname" />
+                <input id="logowanie" type="button" value="Logowanie" />
+            </div>
+        </div>
+    </div>-->
+
+</body>
+</html>

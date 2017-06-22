@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Gwint</title>
+    <meta charset="utf-8" />
+    <script src="/libs/socket.io-1.4.5.js"></script>
+    <script src="/libs/Lib.js"></script>
+    <script src="/libs/three.js"></script>
+    <script src="/libs/Drivers.js" ></script>
+    <script src="/libs/MyDriver.js"></script>
+    <script src="js/ColladaLoader.js"></script>
+    <script src="js/Game.js"></script>
+    <script src="js/Net.js"></script>
+    <script src="js/Data.js"></script>
+    <script src="js/UI.js"></script>
+    <script src="js/LoadingScreen.js"></script>
+    <script src="js/font.js"></script>
+    <script src="js/karta.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="css/GridSheet.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div id="Scene">
+        <canvas id="Driver2">
+
+        </canvas>
+    </div>
+    <div id="Tablica"></div>
+    <div class="alert" id="LoginField" style="display: block" >
+        <!--<div class="alert-main container-small"id="LoginForm">
+            <form class="form block-12" style="width:100%;height:100%;font-size:25px;min-height: 210px;">
+                <div class="form-section-header con-header">
+                    Zaloguj Się
+                </div>
+                <div class="form-elem-ver">
+                    <label>Login</label>
+                    <input type="text" name="Login" id="Login"/>
+                </div>
+                <div class="form-elem-ver">
+                    <label>Hasło</label>
+                    <input type="password" name="Password" id="Pass"/>
+                </div>
+                <input type="button" value="Zaloguj" id="LogIn"/>
+            </form>
+        </div>-->
+        <div id="LoadingScreen"></div>
+        <div class="alert-main container-small"id="LoginForm">
+            <form class="form block-12" style="width:100%;height:100%;font-size:25px;min-height: 210px;">
+                <img src="gfx/logo.png" alt="err" class="logo"/>
+                <div class="form-elem-ver">
+                    <label>Login</label>
+                    <input type="text" name="Login" id="Login"/>
+                </div>
+                <div class="form-elem-ver">
+                    <label>Hasło</label>
+                    <input type="password" name="Password" id="Pass"/>
+                </div>
+                <input type="button" value="Zaloguj" id="LogIn"/>
+            </form>
+        </div>
+    </div>
+    <div id="Panel" class="alert">
+        <div class="alert-main" id="PanelCon">
+            <div class="user-name" id="UserName"></div>
+            <div class="panel-elem" id="ShowCards">KARTY</div>
+            <div class="panel-elem" id="ShowDecks">TALIE</div>
+            <div class="panel-elem" id="Play">GRAJ</div>
+        </div>
+    </div>
+    <div id="Loading" class="alert">
+        <span class="alert-main-text">ŁADOWANIE</span>
+    </div>
+    <div id="Cards" class="alert">
+        <div class="alert-main" id="CardsCon">
+            <h3 class="block-12 con-header">Karty</h3>
+            <div id="CardsList" class="container">
+
+            </div>
+        </div>
+    </div>
+    <div id="Decks" class="alert">
+        <div class="alert-main" id="DeckCon">
+            <h3 class="block-12 con-header">Talie</h3>
+            <div id="DeckList" class="container">
+
+            </div>
+        </div>
+    </div>
+    <div id="ChoiseDeck" class="alert">
+        <div class="alert-main" id="DeckCon">
+            <h3 class="block-12 con-header">Wybierz talie</h3>
+            <div id="ChoiseDeckList" class="container">
+
+            </div>
+        </div>
+    </div>
+    <div id="Alert" class="alert">
+        <div id="Alert-Con" class="alert-main"></div>
+    </div>
+    <div id="Waiting" class="alert">
+        <div id="Wait-Con" class="alert-main"></div>
+    </div>
+    <div id="WinWindow" class="alert">
+            <div class="alert-main">
+                <div id="Winner"></div>
+                <div id="Score">
+                    <div id="You-Elem"></div>
+                </div>
+            </div>
+    </div>
+    <script>
+        var Game;
+        var Driver;
+        var LoginDisp;
+        window.addEventListener("load", function () {
+            LoginDisp = new LS();
+            document.getElementById("Driver2").setAttribute("width",window.innerWidth)
+            document.getElementById("Driver2").setAttribute("height",window.innerHeight)
+            document.getElementById("LogIn").onclick = UI.Login;
+            document.getElementById("Cards").oncontextmenu = function(e){
+                e.preventDefault();
+                this.style.display = "none";
+            }
+            document.getElementById("Decks").oncontextmenu = function(e){
+                e.preventDefault();
+                this.style.display = "none";
+            }
+            Driver = new MyDriver.Driver2d();
+            Driver.RenderCanvas(document.getElementById("Driver2"));
+        })
+        document.body.onresize = function(){
+            document.getElementById("Driver2").setAttribute("width",window.innerWidth)
+            document.getElementById("Driver2").setAttribute("height",window.innerHeight)
+            Driver.RenderCanvas(document.getElementById("Driver2"));
+        }
+    </script>
+</body>
+</html>

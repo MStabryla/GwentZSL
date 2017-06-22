@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Gwint ZSŁ</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <script src="/libs/socket.io-1.4.5.js"></script>
+        <script src="/libs/Lib.js"></script>
+        <script src="/libs/three.js"></script>
+        <script src="/libs/Drivers.js" ></script>
+        <script src="/js/Net.js"></script>
+        <script src="/js/Data.js"></script>
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/GridSheet.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <canvas id="Driver" style="display:none;">
+
+        </canvas>
+        <div class="alert" id="login" style="display: block" >
+            <div class="alert-main container-small" style="padding:5px;">
+                <form class="form block-12" style="width:100%;height:100%;font-size:25px;">
+                    <div class="form-elem-ver">
+                        <label>Login</label>
+                        <input type="text" name="Login" id="Login"/>
+                    </div>
+                    <div class="form-elem-ver">
+                        <label>Hasło</label>
+                        <input type="password" name="Password" id="Pass"/>
+                    </div>
+                    <input type="button" value="Zaloguj" id="LogIn"/>
+                </form>
+            </div>
+        </div>
+        <div id="Messeger">
+
+        </div>
+        <script>
+            function Mess(text){
+                var elem = document.createElement("div");
+                elem.setAttribute("class","messege");
+                elem.innerText = text;
+                document.getElementById("Messeger").appendChild(elem);
+            }
+            function Login(login,password){
+
+                conn("login","login=" + login + "&password=" + password,function(data){
+                    Mess(JSON.stringify(data));
+                });
+            }
+            function Registry(login,password)
+            {
+                conn("registry","login=" + login + "&password=" + password,function(data){
+                     Mess(JSON.stringify(data));
+                });
+            }
+            Net.Listening();
+            Net.Http.GetCards();
+            function Emit(event,data){
+                Net.socket.emit(event,data);
+                Net.socket.on(event,function(d){
+                    Mess(JSON.stringify(d));
+                })
+            }
+            Driver = new MyDriver.Driver2d();
+            Driver.RenderCanvas(document.getElementById("Driver"))
+            document.body.onresize = function(){
+                document.getElementById("Driver").setAttribute("width",window.innerWidth)
+                document.getElementById("Driver").setAttribute("height",window.innerHeight)
+                Driver.RenderCanvas(document.getElementById("Driver"));
+            }
+        </script>
+    </body>
+</html>

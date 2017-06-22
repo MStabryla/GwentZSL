@@ -1,0 +1,307 @@
+@font-face
+{
+    font-family:"GWENT";
+    src:url("/font/GWENT.woff");
+}
+body{
+    margin:0;
+    padding:0;
+    font-family: "GWENT";
+    background-image: url('/gfx/back.jpg');
+}
+#Messeger{
+    width:100%;
+    border-radius: 5px;
+    border:1px groove #aaaaaa;
+    font-family:monospace;
+    font-size:16px;
+}
+.messege{
+    display:block;
+    margin-bottom:4px;
+}
+#Driver{
+    display:block;
+    width:100vw;
+    height:100vh;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:2;
+}
+.alert
+{
+    width:100vw;
+    height: 100vh;
+    background-color:rgba(0,0,0,0.5);
+    position: fixed;
+    top:0;
+    display:none;
+}
+.alert-main
+{
+    width:50%;
+    height:50%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    border-radius: 15px;
+    border:2px groove #808080;
+}
+.alert-main-text{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    color: white;
+}
+#Scene {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+#front {
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.7;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:green;
+}
+#back {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: green;
+    opacity: 0.7;
+}
+#kom {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 150px;
+    background-color: green;
+    opacity:0,5;
+    z-index: 10;
+}
+#log {
+    margin: 0 auto;
+    text-align: center;
+    width: 250px;
+    height: 250px;
+    background-color: green;
+    margin-top: 300px;
+}
+#log > input {
+    width: 200px;
+    height: 30px;
+    margin-left: 30px;
+    margin-right: 60px;
+    margin-top: 30px;
+    font-size: 20px;
+}
+#komunikat {
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 35px;
+    font-size: 50px;
+    color:white;
+}
+#move {
+    text-align: center;
+}
+#Tablica {
+    position: absolute;
+    top: 500px;
+    left: 10px;
+    width: 100px;
+    color: white;
+}
+#LoginForm{
+    /*background-image: url('/gfx/login.jpg');*/
+    color:white;
+    padding: 5px;
+    padding-bottom: 40px;
+    height:auto;
+    transform: translate(-50%,-80%);
+}
+.con-header{
+    text-align: center!important;
+    font-size: 35px!important;
+}
+#LoginForm input{
+    background-color: rgba(0,0,0,0.5);
+    color:white;
+    font-family: inherit;
+    font-size:25px;
+}
+#LoginForm label{
+    font-size:26px;
+}
+#LoginForm input[type=button]
+{
+    padding: 10px 15px;
+    margin: 25px 0;
+    border-radius: 12px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+#LoginForm input:hover
+{
+    background-color:rgba(0,0,0,0.2);
+}
+#Panel{
+    background-color: none;
+}
+.alert-main{
+    background-image: url('/gfx/login.jpg');
+}
+#PanelCon
+{
+    width:90%;
+    min-width:300px;
+    height:90%;
+    min-width: 400px;
+    /*background-image: url('/gfx/login.jpg');*/
+}
+.user-name{
+    height: 20px;
+    text-indent: 15px;
+    padding: 15px;
+    font-size: 36px;
+    color: #d1d1d1;
+    font-weight: bold;
+}
+#Loading{
+    z-index:5;
+    background-color: black;
+}
+.panel-elem{
+    margin: 25px auto;
+    width: calc(100% - 56px);
+    height: 45px;
+    border: 2px groove #844f0a;
+    background-color: #12723a;
+    border-radius: 5px;
+    font-size: 45px;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+.panel-elem:hover{
+    background-color:rgba(18, 114, 58,0.5)
+}
+#CardsCon,#DeckCon{
+    overflow: scroll;
+    overflow-x: visible;
+    width:100vw;
+    height:100vh;
+}
+#CardsList,#DeckList{
+    display:block;
+    position: relative;
+}
+.card{
+    margin: 25px auto;
+    height: auto;
+    border: 2px groove #844f0a;
+    border-radius: 5px;
+    font-size: 45px;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    position:relative;
+}
+.card-img{
+    height:490px;
+    max-height: 100%;
+}
+.card-name,.card-desc,.card-power{
+    position:absolute;
+}
+.card-main{
+    position:relative;
+}
+.card-name{
+    top:5px;
+    left:5px;
+    font-size:24px;
+    font-weight: bold;
+}
+.card-desc{
+    font-family: 18px;
+    top:calc(55px);
+    left:5px;
+}
+.card-power{
+    top:5px;
+    right:5px;
+    font-size:35px;
+    text-align: right;
+}
+.c-deck{
+    margin: 25px auto;
+    height: auto;
+    border: 2px groove #844f0a;
+    border-radius: 5px;
+    font-size: 45px;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    position:relative;
+}
+#Alert{
+    z-index:99999;
+}
+#Alert-Con{
+    text-align: center;
+    vertical-align: central;
+    font-size:35px;
+    color:#d1d1d1;
+    height:auto;
+    padding:15px;
+}
+#Waiting{
+    z-index: 3;
+}
+#Wait-Con{
+    background: none;
+    color:white;
+    font-size:40px;
+    text-align: center;
+}
+#Driver2{
+    position:absolute;
+    width:100vw;
+    height:100vh;
+    top:0;
+    left:0;
+    display:none;
+}
+#LoadingScreen{
+    position:fixed;
+    width:100vw;
+    height:100vh;
+    top:0;
+    left:0;
+}
+.form{
+    z-index:6;
+}
+.logo{
+    width:300px;
+    height:auto;
+    display:block;
+    margin:0 auto;
+}

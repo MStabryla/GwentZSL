@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Gwint</title>
+    <meta charset="utf-8" />
+    <script src="/libs/socket.io-1.4.5.js"></script>
+    <script src="/libs/Lib.js"></script>
+    <script src="/libs/three.js"></script>
+    <script src="/libs/Drivers.js" ></script>
+    <script src="js/Game.js"></script>
+    <script src="js/Net.js"></script>
+    <script src="js/Data.js"></script>
+    <script src="js/tUI.js"></script>
+    <script src="js/font.js"></script>
+    <script src="js/karta.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="css/GridSheet.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div id="Scene"></div>
+    <div id="Tablica"></div>
+    <script>
+        var Game = new _Game();
+        Game.Start();
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+ODPALENIE GRY GWINT ZS£
+
+1.Uruchomienie serwera MongoDb
+
+komenda 'mongod'
+
+Baza Mongo musi posiadaæ bazê o nazwie 'gwent'!
+
+2.Odpalenie pliku server.js znajduj¹æego siê w g³ównym folderze
+
+komenda 'node server.js'
+
+AKTUALIZACJA DANYCH 
+
+Odpalenie pliku upload.js  - zaktualizuje on dane o kartach.
+
+komenda 'node upload.js'
+
+URUCHOMIENIE GRY
+
+1.Logowanie
+
+Do zagrania jest wykorzystana baza MognoDb gdzie przetrzymywane s¹ dane u¿ytkowników
+
+Po wejœciu na adres localhost:3000 pojawi siê ekran logowania.
+
+USERZY:
+
+L: admin
+h: admin
+
+L: sta
+H: sta
+
+2.Panel
+
+W panelu znajduj¹ siê trzy przyciski.
+
+2.1 Karty - pokazuje wszytskie karty pobrane z serwera
+2.2 Talie - pokazuje wszytskie talie nale¿¹ce do aktualnego u¿ytkownika
+2.3 Graj - wejœcie do kolejki logowania
+
+3.Gra
+
+Po wejœciu do kolejki i wytypowaniu gracza mo¿na przyst¹piæ do gry.
+
+Pojawi siê plansza na œrodku z 6 polami.
+
+S¹ to rzêdy gdzie umiejscawiamy nasze karty.
+
+W rêce, która znajduje siê poni¿êj znajduj¹ siê karty w naszej rêce.
+
+Po lewej jest nasz dowódca.
+
+Po prawej kupka z naszymi kartami.
+
+Kiedy przypadnie nasza kolej na zagranie mo¿emy wystawiæ jedn¹ kartê na planszê .
+
+Potem nasz przeciwnik zagrywa kolejn¹ kartê.
+
+Wygrywa ten kto osi¹gnie najwiêcej punktów z si³y naszych kart.
