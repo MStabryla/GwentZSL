@@ -1,5 +1,5 @@
 var Net = {
-    socket:io("http://localhost:2999"),
+    socket:io("http://" + window.location.hostname + ":2999"),
     Listening:function(){
         Net.socket.on("onconnect",function(data){
             if(data.mess = "test")

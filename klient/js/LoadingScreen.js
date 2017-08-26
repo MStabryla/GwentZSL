@@ -67,11 +67,9 @@ function LS()
         }
         if(witch)
         {
-            //that.camera.position.z -= 1;
-            //witch.position.z -= 0.1;
             witch.rotation.z += 0.005;
         }
-        that.renderer.render(scene, camera);
+        that.renderer.render(that.scene, that.camera);
     }
     animateScene();
 }
