@@ -13,7 +13,7 @@ Do projektu wykorzystano język JavaSCript, server Node.js, bazę MongoDB oraz b
 
 Projekt został zakończony w czerwcu 2017 roku.
 
-## EN - GwentZSL
+# EN - GwentZSL
 
 A final project for a technical course at my technical school. This is a variant of the card game GWENT featuring characters from my technical school. The project includes a server written in Node.js and a frontend in native JavaScript.
 
