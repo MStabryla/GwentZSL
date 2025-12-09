@@ -1,5 +1,5 @@
 ![main image](https://github.com/MStabryla/GwentZSL/blob/master/main.png?raw=true)
-## Pl - GwentZSL
+# PL - GwentZSL
 
 Projekt zaliczeniowy z przedmiotu technicznego w technikum. Jest to wariant gry karcienej GWENT, w którym występują postacie z mojego technikum. Projekt zawiera serwer napisany w Node.js i frontent w native JavaScript.
 
