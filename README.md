@@ -9,7 +9,7 @@ Do projektu wykorzystano język JavaSCript, server Node.js, bazę MongoDB oraz b
 
 ## Status
 
-### Zakończony
+:white_check_mark: Zakończony
 
 Projekt został zakończony w czerwcu 2017 roku.
 
@@ -23,6 +23,6 @@ The project uses JavaScript, a Node.js server, a MongoDB database, and the Three
 
 ## Status
 
-### Completed
+:white_check_mark: Completed
 
 The project was completed in June 2017.
